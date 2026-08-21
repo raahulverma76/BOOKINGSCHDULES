@@ -58,35 +58,54 @@
         }
         .card {
             background: #fff;
-            padding: 15px;
+            padding: 12px 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border-left: 5px solid #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
         }
         .card.confirmed {
             border-left-color: #2ecc71;
         }
-        .card h4 {
-            margin: 0 0 8px 0;
-            color: #2c3e50;
+        .card-main {
+            flex-grow: 1;
         }
-        .card p {
-            margin: 4px 0;
-            font-size: 14px;
+        .card-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+        .card h4 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+        .card-details {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
             color: #555;
         }
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            color: #fff;
-            background: #e74c3c;
+        .card-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        .badge.confirmed {
-            background: #2ecc71;
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .checkbox-container input {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -216,19 +235,36 @@
                 return;
             }
 
-            data.forEach(item => {
+            data.forEach((item, index) => {
                 const isConf = item.status === "Confirmed";
                 const card = document.createElement("div");
                 card.className = `card ${isConf ? 'confirmed' : ''}`;
                 
                 card.innerHTML = `
-                    <h4>${item.party}</h4>
-                    <p><strong>Date:</strong> ${item.date || 'N/A'} (${item.day || '-'})</p>
-                    <p><strong>Timing:</strong> ${item.time || 'N/A'}</p>
-                    <p><strong>Status:</strong> <span class="badge ${isConf ? 'confirmed' : ''}">${item.status}</span></p>
+                    <div class="card-main">
+                        <h4>${item.party}</h4>
+                        <div class="card-details">
+                            <span>🕒 <strong>${item.time || 'N/A'}</strong></span>
+                            <span>📅 <strong>${item.date || 'N/A'}</strong></span>
+                        </div>
+                    </div>
+                    <div class="card-right">
+                        <label class="checkbox-container">
+                            <input type="checkbox" ${isConf ? 'checked' : ''} onchange="toggleConfirm(${index}, this)">
+                        </label>
+                    </div>
                 `;
                 container.appendChild(card);
             });
+        }
+
+        function toggleConfirm(index, checkbox) {
+            if (checkbox.checked) {
+                bookings[index].status = "Confirmed";
+            } else {
+                bookings[index].status = "Not Confirmed";
+            }
+            filterData();
         }
 
         function filterData() {
