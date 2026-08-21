@@ -59,86 +59,86 @@
     <div id="cardContainer"></div>
 
     <script>
-        // Full Original Data
+        // Full Original Data with an independent 'isChecked' property
         let defaultBookings = [
-            { id: 1, party: "AMBAY COMPLEX", date: "23-08-2026", status: "Confirmed", time: "10:00 AM", day: "4th Day" },
-            { id: 2, party: "AMBIKA CITY FASHION", date: "23-08-2026", status: "Confirmed", time: "11:00 AM", day: "4th Day" },
-            { id: 3, party: "ANKUR READYMADE", date: "26-08-2026", status: "Confirmed", time: "9:00 AM", day: "7th Day" },
-            { id: 4, party: "ARISTOCRAT GALAXY", date: "", status: "Not Confirmed", time: "-", day: "-" },
-            { id: 5, party: "ARISTOCRAT GALAXY (LDH)", date: "", status: "Not Confirmed", time: "-", day: "-" },
-            { id: 6, party: "ARISTOCRAT GALLERY", date: "", status: "Not Confirmed", time: "-", day: "-" },
-            { id: 7, party: "ARORA FASHION CHAMP", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 8, party: "ATHRAV ENTERPRISES (AMB)", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day" },
-            { id: 9, party: "B. R. SONS", date: "23-08-2026", status: "Confirmed", time: "11:00 AM", day: "4th Day" },
-            { id: 10, party: "BALA JI EXCLUSIVE", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day" },
-            { id: 11, party: "BANSAL GARMENTS", date: "24-08-2026", status: "Confirmed", time: "9:00 AM", day: "5th Day" },
-            { id: 12, party: "BHAPE DI HATTI", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 13, party: "CAMPUS FASHIONS", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day" },
-            { id: 14, party: "COVER POINT", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day" },
-            { id: 15, party: "DEON TRADER", date: "", status: "Not Confirmed", time: "-", day: "-" },
-            { id: 16, party: "DKS PARADISE (NARAINGARH)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 17, party: "DUTT STYLISH COLLECTION", date: "22-08-2026", status: "Confirmed", time: "-", day: "3rd Day" },
-            { id: 18, party: "FASHIONERS", date: "20-08-2026", status: "Confirmed", time: "11:00 AM", day: "1st Day" },
-            { id: 19, party: "FASHIONERS GALLERY", date: "22-08-2026", status: "Confirmed", time: "11:00 AM", day: "3rd Day" },
-            { id: 20, party: "FRIENDS TRADER (VIJAYPUR)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 21, party: "GARMENT PALACE (EXCLUSIVE)", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day" },
-            { id: 22, party: "GOYAL BROTHERS", date: "23-08-2026", status: "Confirmed", time: "11:00 AM", day: "4th Day" },
-            { id: 23, party: "GURUNANAK ENTERPRISES (KASHIPUR)", date: "", status: "Not Confirmed", time: "-", day: "-" },
-            { id: 24, party: "HARI ENTERPRISES", date: "23-08-2026", status: "Confirmed", time: "10:00 AM", day: "4th Day" },
-            { id: 25, party: "JAIN ELITE CLOTHINGS (P) LTD.", date: "24-08-2026", status: "Confirmed", time: "10:00 AM", day: "5th Day" },
-            { id: 26, party: "JINDGAR BROTHERS(SIRSA)", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day" },
-            { id: 27, party: "KOHLI GARMENTS", date: "", status: "Not Confirmed", time: "-", day: "-" },
-            { id: 28, party: "KRISHAN CHAND BHAGWAN DASS", date: "26-08-2026", status: "Confirmed", time: "11:00 AM", day: "7th Day" },
-            { id: 29, party: "LIBAS COLLECTIONS", date: "26-08-2026", status: "Confirmed", time: "9:00 AM", day: "7th Day" },
-            { id: 30, party: "LIFESTYLE CONCERN PVT. LTD.", date: "22-08-2026", status: "Confirmed", time: "11:00 AM", day: "3rd Day" },
-            { id: 31, party: "LIFESTYLE SHOPPE", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day" },
-            { id: 32, party: "LUCKY TOWEL", date: "20-08-2026", status: "Confirmed", time: "11:00 AM", day: "1st Day" },
-            { id: 33, party: "MAM WEARS", date: "26-08-2026", status: "Confirmed", time: "11:00 AM", day: "7th Day" },
-            { id: 34, party: "MEHTAB TRADERS", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 35, party: "MOM & KID", date: "", status: "Not Confirmed", time: "-", day: "-" },
-            { id: 36, party: "MONALISA STORES PRIVATE LIMITED", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day" },
-            { id: 37, party: "MONALISA STORES PRIVATE LIMITED (LDH)", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day" },
-            { id: 38, party: "NEW FANCY CLOTH HOUSE", date: "", status: "Not Confirmed", time: "-", day: "-" },
-            { id: 39, party: "NEW MOHAN DI HATTI (JALANDAHR)", date: "20-08-2026", status: "Confirmed", time: "10:00 AM", day: "1st Day" },
-            { id: 40, party: "NIKKI HATTI", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day" },
-            { id: 41, party: "OM FASHION MART (PANCHKULA)", date: "24-08-2026", status: "Confirmed", time: "10:00 AM", day: "5th Day" },
-            { id: 42, party: "PASSION EBO (SRINAGAR)", date: "", status: "Confirmed", time: "-", day: "-" },
-            { id: 43, party: "PAWAN READYMADE GARMENTS", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day" },
-            { id: 44, party: "PIO APPARELS (NER CHOWK)", date: "24-08-2026", status: "Confirmed", time: "10:00 AM", day: "5th Day" },
-            { id: 45, party: "POSHAK", date: "26-08-2026", status: "Confirmed", time: "12:00 PM", day: "7th Day" },
-            { id: 46, party: "R.R. SONS", date: "24-08-2026", status: "Confirmed", time: "1:00 PM", day: "5th Day" },
-            { id: 47, party: "RAJ SONS", date: "25-08-2026", status: "Confirmed", time: "11:00 AM", day: "6th Day" },
-            { id: 48, party: "RAVI EXCLUSIVE", date: "25-08-2026", status: "Confirmed", time: "1:00 PM", day: "6th Day" },
-            { id: 49, party: "REHAL GARMENTS", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day" },
-            { id: 50, party: "S.S. NATH & CO.", date: "25-08-2026", status: "Confirmed", time: "11:00 AM", day: "6th Day" },
-            { id: 51, party: "SAHNI EMPORIUM", date: "25-08-2026", status: "Confirmed", time: "11:00 AM", day: "6th Day" },
-            { id: 52, party: "SAM COLLECTION", date: "", status: "Not Confirmed", time: "-", day: "-" },
-            { id: 53, party: "SANDEEP EX (ROPAR)", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day" },
-            { id: 54, party: "SARASWATI FASHION HUT (KURUKSHETRA)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 55, party: "SARASWATI FASHION HUT (PEHOWA)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 56, party: "SARASWATI GARMENTS (YAMUNA NAGAR)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 57, party: "SEHGAL NX", date: "23-08-2026", status: "Confirmed", time: "3:00 PM", day: "4th Day" },
-            { id: 58, party: "SHIVA APPARELS (Group)", date: "25-08-2026", status: "Confirmed", time: "11:00 AM", day: "6th Day" },
-            { id: 59, party: "SHIVAM KIDS WEAR", date: "22-08-2026", status: "Confirmed", time: "12:00 PM", day: "3rd Day" },
-            { id: 60, party: "SHIVAM LADIES CORNER & KIDS WEAR", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 61, party: "SHOP N WEAR(RUDRAPUR)", date: "23-08-2026", status: "Confirmed", time: "10:00 AM", day: "4th Day" },
-            { id: 62, party: "SHREE BALAJI ENTERPRISES", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day" },
-            { id: 63, party: "SHREE RIWAZ EXCLUSIVE (YAMUNANAGAR)", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day" },
-            { id: 64, party: "SHRI SHYAM GARMENTS (BHIWANI)", date: "23-08-2026", status: "Confirmed", time: "10:00 AM", day: "4th Day" },
-            { id: 65, party: "SINGH TRADING COMPANY (SIRHIND)", date: "20-08-2026", status: "Confirmed", time: "10:00 AM", day: "1st Day" },
-            { id: 66, party: "TOSHIBA UNA", date: "23-08-2026", status: "Confirmed", time: "11:00 AM", day: "4th Day" },
-            { id: 67, party: "TREND PLUSS", date: "20-08-2026", status: "Confirmed", time: "11:00 AM", day: "1st Day" },
-            { id: 68, party: "TREND SHOP NX", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day" },
-            { id: 69, party: "U.S.PLANET EXCLUSIVE", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day" },
-            { id: 70, party: "UNITED GARMENTS(UNA)", date: "24-08-2026", status: "Confirmed", time: "10:00 AM", day: "5th Day" },
-            { id: 71, party: "VIKASH GARMENT (GHUMARWIN)", date: "26-08-2026", status: "Confirmed", time: "9:00 AM", day: "7th Day" },
-            { id: 72, party: "VIPAN JAIN & SONS", date: "23-08-2026", status: "Confirmed", time: "1:00 PM", day: "4th Day" }
+            { id: 1, party: "AMBAY COMPLEX", date: "23-08-2026", status: "Confirmed", time: "10:00 AM", day: "4th Day", isChecked: false },
+            { id: 2, party: "AMBIKA CITY FASHION", date: "23-08-2026", status: "Confirmed", time: "11:00 AM", day: "4th Day", isChecked: false },
+            { id: 3, party: "ANKUR READYMADE", date: "26-08-2026", status: "Confirmed", time: "9:00 AM", day: "7th Day", isChecked: false },
+            { id: 4, party: "ARISTOCRAT GALAXY", date: "", status: "Not Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 5, party: "ARISTOCRAT GALAXY (LDH)", date: "", status: "Not Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 6, party: "ARISTOCRAT GALLERY", date: "", status: "Not Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 7, party: "ARORA FASHION CHAMP", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 8, party: "ATHRAV ENTERPRISES (AMB)", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day", isChecked: false },
+            { id: 9, party: "B. R. SONS", date: "23-08-2026", status: "Confirmed", time: "11:00 AM", day: "4th Day", isChecked: false },
+            { id: 10, party: "BALA JI EXCLUSIVE", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day", isChecked: false },
+            { id: 11, party: "BANSAL GARMENTS", date: "24-08-2026", status: "Confirmed", time: "9:00 AM", day: "5th Day", isChecked: false },
+            { id: 12, party: "BHAPE DI HATTI", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 13, party: "CAMPUS FASHIONS", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day", isChecked: false },
+            { id: 14, party: "COVER POINT", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day", isChecked: false },
+            { id: 15, party: "DEON TRADER", date: "", status: "Not Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 16, party: "DKS PARADISE (NARAINGARH)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 17, party: "DUTT STYLISH COLLECTION", date: "22-08-2026", status: "Confirmed", time: "-", day: "3rd Day", isChecked: false },
+            { id: 18, party: "FASHIONERS", date: "20-08-2026", status: "Confirmed", time: "11:00 AM", day: "1st Day", isChecked: false },
+            { id: 19, party: "FASHIONERS GALLERY", date: "22-08-2026", status: "Confirmed", time: "11:00 AM", day: "3rd Day", isChecked: false },
+            { id: 20, party: "FRIENDS TRADER (VIJAYPUR)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 21, party: "GARMENT PALACE (EXCLUSIVE)", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day", isChecked: false },
+            { id: 22, party: "GOYAL BROTHERS", date: "23-08-2026", status: "Confirmed", time: "11:00 AM", day: "4th Day", isChecked: false },
+            { id: 23, party: "GURUNANAK ENTERPRISES (KASHIPUR)", date: "", status: "Not Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 24, party: "HARI ENTERPRISES", date: "23-08-2026", status: "Confirmed", time: "10:00 AM", day: "4th Day", isChecked: false },
+            { id: 25, party: "JAIN ELITE CLOTHINGS (P) LTD.", date: "24-08-2026", status: "Confirmed", time: "10:00 AM", day: "5th Day", isChecked: false },
+            { id: 26, party: "JINDGAR BROTHERS(SIRSA)", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day", isChecked: false },
+            { id: 27, party: "KOHLI GARMENTS", date: "", status: "Not Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 28, party: "KRISHAN CHAND BHAGWAN DASS", date: "26-08-2026", status: "Confirmed", time: "11:00 AM", day: "7th Day", isChecked: false },
+            { id: 29, party: "LIBAS COLLECTIONS", date: "26-08-2026", status: "Confirmed", time: "9:00 AM", day: "7th Day", isChecked: false },
+            { id: 30, party: "LIFESTYLE CONCERN PVT. LTD.", date: "22-08-2026", status: "Confirmed", time: "11:00 AM", day: "3rd Day", isChecked: false },
+            { id: 31, party: "LIFESTYLE SHOPPE", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day", isChecked: false },
+            { id: 32, party: "LUCKY TOWEL", date: "20-08-2026", status: "Confirmed", time: "11:00 AM", day: "1st Day", isChecked: false },
+            { id: 33, party: "MAM WEARS", date: "26-08-2026", status: "Confirmed", time: "11:00 AM", day: "7th Day", isChecked: false },
+            { id: 34, party: "MEHTAB TRADERS", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 35, party: "MOM & KID", date: "", status: "Not Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 36, party: "MONALISA STORES PRIVATE LIMITED", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day", isChecked: false },
+            { id: 37, party: "MONALISA STORES PRIVATE LIMITED (LDH)", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day", isChecked: false },
+            { id: 38, party: "NEW FANCY CLOTH HOUSE", date: "", status: "Not Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 39, party: "NEW MOHAN DI HATTI (JALANDAHR)", date: "20-08-2026", status: "Confirmed", time: "10:00 AM", day: "1st Day", isChecked: false },
+            { id: 40, party: "NIKKI HATTI", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day", isChecked: false },
+            { id: 41, party: "OM FASHION MART (PANCHKULA)", date: "24-08-2026", status: "Confirmed", time: "10:00 AM", day: "5th Day", isChecked: false },
+            { id: 42, party: "PASSION EBO (SRINAGAR)", date: "", status: "Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 43, party: "PAWAN READYMADE GARMENTS", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day", isChecked: false },
+            { id: 44, party: "PIO APPARELS (NER CHOWK)", date: "24-08-2026", status: "Confirmed", time: "10:00 AM", day: "5th Day", isChecked: false },
+            { id: 45, party: "POSHAK", date: "26-08-2026", status: "Confirmed", time: "12:00 PM", day: "7th Day", isChecked: false },
+            { id: 46, party: "R.R. SONS", date: "24-08-2026", status: "Confirmed", time: "1:00 PM", day: "5th Day", isChecked: false },
+            { id: 47, party: "RAJ SONS", date: "25-08-2026", status: "Confirmed", time: "11:00 AM", day: "6th Day", isChecked: false },
+            { id: 48, party: "RAVI EXCLUSIVE", date: "25-08-2026", status: "Confirmed", time: "1:00 PM", day: "6th Day", isChecked: false },
+            { id: 49, party: "REHAL GARMENTS", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day", isChecked: false },
+            { id: 50, party: "S.S. NATH & CO.", date: "25-08-2026", status: "Confirmed", time: "11:00 AM", day: "6th Day", isChecked: false },
+            { id: 51, party: "SAHNI EMPORIUM", date: "25-08-2026", status: "Confirmed", time: "11:00 AM", day: "6th Day", isChecked: false },
+            { id: 52, party: "SAM COLLECTION", date: "", status: "Not Confirmed", time: "-", day: "-", isChecked: false },
+            { id: 53, party: "SANDEEP EX (ROPAR)", date: "26-08-2026", status: "Confirmed", time: "10:00 AM", day: "7th Day", isChecked: false },
+            { id: 54, party: "SARASWATI FASHION HUT (KURUKSHETRA)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 55, party: "SARASWATI FASHION HUT (PEHOWA)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 56, party: "SARASWATI GARMENTS (YAMUNA NAGAR)", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 57, party: "SEHGAL NX", date: "23-08-2026", status: "Confirmed", time: "3:00 PM", day: "4th Day", isChecked: false },
+            { id: 58, party: "SHIVA APPARELS (Group)", date: "25-08-2026", status: "Confirmed", time: "11:00 AM", day: "6th Day", isChecked: false },
+            { id: 59, party: "SHIVAM KIDS WEAR", date: "22-08-2026", status: "Confirmed", time: "12:00 PM", day: "3rd Day", isChecked: false },
+            { id: 60, party: "SHIVAM LADIES CORNER & KIDS WEAR", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 61, party: "SHOP N WEAR(RUDRAPUR)", date: "23-08-2026", status: "Confirmed", time: "10:00 AM", day: "4th Day", isChecked: false },
+            { id: 62, party: "SHREE BALAJI ENTERPRISES", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day", isChecked: false },
+            { id: 63, party: "SHREE RIWAZ EXCLUSIVE (YAMUNANAGAR)", date: "25-08-2026", status: "Confirmed", time: "10:00 AM", day: "6th Day", isChecked: false },
+            { id: 64, party: "SHRI SHYAM GARMENTS (BHIWANI)", date: "23-08-2026", status: "Confirmed", time: "10:00 AM", day: "4th Day", isChecked: false },
+            { id: 65, party: "SINGH TRADING COMPANY (SIRHIND)", date: "20-08-2026", status: "Confirmed", time: "10:00 AM", day: "1st Day", isChecked: false },
+            { id: 66, party: "TOSHIBA UNA", date: "23-08-2026", status: "Confirmed", time: "11:00 AM", day: "4th Day", isChecked: false },
+            { id: 67, party: "TREND PLUSS", date: "20-08-2026", status: "Confirmed", time: "11:00 AM", day: "1st Day", isChecked: false },
+            { id: 68, party: "TREND SHOP NX", date: "24-08-2026", status: "Confirmed", time: "11:00 AM", day: "5th Day", isChecked: false },
+            { id: 69, party: "U.S.PLANET EXCLUSIVE", date: "22-08-2026", status: "Confirmed", time: "10:00 AM", day: "3rd Day", isChecked: false },
+            { id: 70, party: "UNITED GARMENTS(UNA)", date: "24-08-2026", status: "Confirmed", time: "10:00 AM", day: "5th Day", isChecked: false },
+            { id: 71, party: "VIKASH GARMENT (GHUMARWIN)", date: "26-08-2026", status: "Confirmed", time: "9:00 AM", day: "7th Day", isChecked: false },
+            { id: 72, party: "VIPAN JAIN & SONS", date: "23-08-2026", status: "Confirmed", time: "1:00 PM", day: "4th Day", isChecked: false }
         ];
 
         let bookings = [...defaultBookings];
 
         function loadData() {
-            const saved = localStorage.getItem('bookingData_v3');
+            const saved = localStorage.getItem('bookingData_v4'); // Key updated to v4 for fresh state
             if (saved) {
                 bookings = JSON.parse(saved);
             }
@@ -166,22 +166,23 @@
                         <div class="card-details">
                             <span>🕒 ${item.time}</span>
                             <span>📅 ${item.date || 'N/A'}</span>
+                            <span style="font-size: 12px; color: ${isConf ? '#27ae60' : '#e67e22'}; font-weight: bold;">[${item.status}]</span>
                         </div>
                     </div>
                     <div class="checkbox-container">
-                        <input type="checkbox" ${isConf ? 'checked' : ''} onchange="toggleStatus(${item.id})">
+                        <input type="checkbox" ${item.isChecked ? 'checked' : ''} onchange="toggleCheckbox(${item.id})">
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
 
-        function toggleStatus(id) {
+        // Independent Checkbox Toggle Function (Does NOT touch item.status)
+        function toggleCheckbox(id) {
             const item = bookings.find(b => b.id === id);
             if (item) {
-                item.status = (item.status === "Confirmed") ? "Not Confirmed" : "Confirmed";
-                localStorage.setItem('bookingData_v3', JSON.stringify(bookings));
-                filterData();
+                item.isChecked = !item.isChecked;
+                localStorage.setItem('bookingData_v4', JSON.stringify(bookings));
             }
         }
 
